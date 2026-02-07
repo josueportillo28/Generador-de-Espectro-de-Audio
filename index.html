@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Espectro de Audio por Varita Pixel</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main-container">
+        <main class="app-section">
+            <header>
+                <h1>Generador de Espectro de Audio</h1>
+                <p>Varita Pixel - Alta Fidelidad para Creadores</p>
+            </header>
+
+            <div class="canvas-wrapper" id="canvasContainer">
+                <canvas id="visualizer"></canvas>
+                <div id="recordingIndicator" class="rec-dot hidden">● GRABANDO EN ALTA CALIDAD</div>
+            </div>
+
+            <div class="controls">
+                <div class="control-row">
+                    <div class="control-group">
+                        <label for="audioFile" class="btn-action btn-upload">📂 Cargar Música</label>
+                        <input type="file" id="audioFile" accept="audio/*">
+                    </div>
+
+                    <div class="control-group">
+                        <label>Estilo de Espectro:</label>
+                        <select id="visualStyle">
+                            <option value="bar">Barras Finas Definidas</option>
+                            <option value="mirror">Estéreo Dual (Espejo)</option>
+                            <option value="pulse">Pulso Central</option>
+                            <option value="line">Onda Continua</option>
+                            <option value="circle">Radial Circular</option>
+                            <option value="dots">Puntos de Frecuencia</option>
+                            <option value="blocks">Bloques Digitales</option>
+                        </select>
+                    </div>
+
+                    <div class="control-group">
+                        <label>Color del Espectro:</label>
+                        <input type="color" id="colorPicker" value="#00ffcc">
+                    </div>
+                </div>
+
+                <div class="control-row">
+                    <div class="control-group">
+                        <label>Fondo de Captura:</label>
+                        <div class="bg-buttons">
+                            <button onclick="changeBg('black')">Negro</button>
+                            <button onclick="changeBg('#00b140')">Verde (Chroma)</button>
+                            <button onclick="changeBg('#0047bb')">Azul (Chroma)</button>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <button id="btnRecord" class="btn-action btn-record">🎥 Grabar Espectro</button>
+                    </div>
+                </div>
+
+                <div class="control-group audio-controls">
+                    <audio id="audioPlayer" controls></audio>
+                </div>
+            </div>
+            
+            <footer>
+                <p>Varita Pixel © 2026</p>
+            </footer>
+        </main>
+
+        <aside class="sidebar">
+            <div class="widget-ad">
+                <span>Espacio Publicitario</span>
+            </div>
+            <div class="widget-ad">
+                <span>Espacio Publicitario</span>
+            </div>
+        </aside>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

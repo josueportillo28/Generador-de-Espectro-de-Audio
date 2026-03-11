@@ -82,5 +82,26 @@
     </div>
 
     <script src="script.js"></script>
+<script>
+(function() {
+  // Verificar si el anuncio ya se abrió en esta sesión/pestaña
+  if (!sessionStorage.getItem('anuncioMostrado')) {
+    // Escuchar todos los clics en el documento
+    document.addEventListener('click', function(event) {
+      // Encontrar el enlace más cercano al elemento cliqueado
+      const enlace = event.target.closest('a');
+      
+      // Si se hizo clic en un enlace válido y aún no se mostró el anuncio
+      if (enlace && enlace.href && !sessionStorage.getItem('anuncioMostrado')) {
+        // Abrir la URL de publicidad en una nueva pestaña
+        window.open('https://omg10.com/4/10615640', '_blank');
+        // Marcar que ya se mostró para esta sesión
+        sessionStorage.setItem('anuncioMostrado', 'true');
+      }
+    });
+  }
+})();
+</script>
 </body>
+
 </html>
